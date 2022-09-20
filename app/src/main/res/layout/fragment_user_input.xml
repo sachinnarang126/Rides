@@ -27,6 +27,7 @@
             android:fontFamily="@font/maison_neue_book"
             android:hint="@string/vehicle_range"
             android:inputType="numberSigned"
+            android:maxLength="3"
             android:paddingStart="8dp"
             android:text="@={vModel.vehicleCount}"
             android:paddingEnd="8dp"

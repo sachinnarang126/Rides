@@ -14,4 +14,5 @@
     <string name="color">Color:</string>
     <string name="car_type">Car type:</string>
     <string name="make_model">Make and model:</string>
+    <string name="error_invalid_input">Input range should be in 1 to 100</string>
 </resources>
