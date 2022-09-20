@@ -14,7 +14,7 @@ import com.ibm.rides.network.response.Status
 class VehicleListingViewModel(application: Application) : BaseAndroidViewModel(application),
     OnApiCallback<List<Vehicle>?> {
 
-    private var vehicleCount = 0
+    var vehicleCount = 0
     private val vehicleListingRepository = VehicleListingRepository(viewModelScope)
     val vehicleList = MutableLiveData<List<Vehicle>>()
 
@@ -33,12 +33,17 @@ class VehicleListingViewModel(application: Application) : BaseAndroidViewModel(a
         }
     }
 
-    fun fetchVehicleList(count: Int, isInternetConnected: Boolean) {
+    fun fetchVehicleList(count: Int, isInternetConnected: Boolean = true) {
         vehicleCount = count
         if (isInternetConnected) {
             networkResponse.postValue(Status.LOADING)
             vehicleListingRepository.fetchVehicleList(count, this)
         } else showInternetError()
+    }
+
+    fun fetchVehicleListOnPullToRefresh() {
+        networkResponse.postValue(Status.LOADING)
+        vehicleListingRepository.fetchVehicleList(vehicleCount, this)
     }
 
     override fun onDestroy() {

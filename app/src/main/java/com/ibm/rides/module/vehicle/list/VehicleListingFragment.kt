@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ibm.rides.R
+import com.ibm.rides.basecontroller.BaseActivity
 import com.ibm.rides.basecontroller.BaseAndroidViewModel
 import com.ibm.rides.basecontroller.BaseFragment
 import com.ibm.rides.databinding.FragmentVehicleListingBinding
@@ -77,6 +78,20 @@ class VehicleListingFragment : BaseFragment(), OnItemClickListener {
                 adapter.list.clear()
                 adapter.list.addAll(vehicleList)
                 adapter.notifyDataSetChanged()
+                binding.pullToRefresh.isRefreshing = false
+            }
+        }
+
+        binding.pullToRefresh.apply {
+            setOnRefreshListener {
+                val activity = requireActivity()
+                if (activity.isInternetAvailable()) {
+                    viewModel.fetchVehicleListOnPullToRefresh()
+                } else {
+                    isRefreshing = false
+                    if (activity is BaseActivity)
+                        activity.showSnackBar(getString(R.string.error_no_internet))
+                }
             }
         }
     }
