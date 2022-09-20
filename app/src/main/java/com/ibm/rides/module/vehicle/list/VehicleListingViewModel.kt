@@ -36,7 +36,7 @@ class VehicleListingViewModel(application: Application) : BaseAndroidViewModel(a
     fun fetchVehicleList(count: Int, isInternetConnected: Boolean) {
         vehicleCount = count
         if (isInternetConnected) {
-//            networkResponse.postValue(Status.LOADING)
+            networkResponse.postValue(Status.LOADING)
             vehicleListingRepository.fetchVehicleList(count, this)
         } else showInternetError()
     }
@@ -54,15 +54,15 @@ class VehicleListingViewModel(application: Application) : BaseAndroidViewModel(a
             t?.let { vehicles ->
                 vehicleList.postValue(vehicles.sortedWith(compareBy { it.vin }))
             }
-        } catch (e:Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         } finally {
-//            networkResponse.postValue(Status.SUCCESS)
+            networkResponse.postValue(Status.SUCCESS)
         }
     }
 
     override fun onFailure(error: String) {
-        /*networkResponse.postValue(Status.ERROR)
-        showSnackBar(error)*/
+        networkResponse.postValue(Status.ERROR)
+        showSnackBar(error)
     }
 }
