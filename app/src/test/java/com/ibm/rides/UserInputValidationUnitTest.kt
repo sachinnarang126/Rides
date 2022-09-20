@@ -9,7 +9,7 @@ import kotlin.random.Random
 class UserInputValidationUnitTest {
 
     @Test
-    fun `Assert user input validation`(){
+    fun `Assert user input validation`() {
         val expectedValidCount = true
 //        val isValidCount = UserInputValidator.isValidVehicleCount(Random.nextInt(101, 1000))
         val isValidCount = UserInputValidator.isValidVehicleCount(Random.nextInt(1, 100))

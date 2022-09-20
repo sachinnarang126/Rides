@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class VehicleListingRepository(viewModelScope: CoroutineScope) : BaseRepository(viewModelScope){
+class VehicleListingRepository(viewModelScope: CoroutineScope) : BaseRepository(viewModelScope) {
 
     private var fetchVehicleJob: Job? = null
 

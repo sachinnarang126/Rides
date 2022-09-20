@@ -143,6 +143,21 @@
             app:layout_constraintStart_toEndOf="@+id/txtVin"
             tools:text="Wagon" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCarbonEmission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/bg_button"
+            android:fontFamily="@font/maison_neue_mono_regular"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/carbon_emission"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCarType" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

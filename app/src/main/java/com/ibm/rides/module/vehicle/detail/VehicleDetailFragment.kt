@@ -8,12 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.ibm.rides.basecontroller.BaseAndroidViewModel
 import com.ibm.rides.basecontroller.BaseFragment
+import com.ibm.rides.databinding.BottomSheetCarbonEmissionBinding
 import com.ibm.rides.databinding.FragmentVehicleDetailBinding
 import com.ibm.rides.module.vehicle.model.Vehicle
 import com.ibm.rides.utils.Constant
 import com.ibm.rides.utils.Injector
+
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -52,9 +55,16 @@ class VehicleDetailFragment : BaseFragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setupUI() {
+        var vehicle: Vehicle? = null
         arguments?.let { args ->
-            val vehicle = args.getParcelable<Vehicle>(Constant.KEY_VEHICLE)
+            vehicle = args.getParcelable(Constant.KEY_VEHICLE)
             viewModel.vehicle.postValue(vehicle)
+        }
+
+        binding.btnCarbonEmission.setOnClickListener {
+            vehicle?.let {
+                showBottomSheetDialog(it)
+            }
         }
     }
 
@@ -62,5 +72,27 @@ class VehicleDetailFragment : BaseFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun showBottomSheetDialog(vehicle: Vehicle) {
+
+        val bottomSheetBinding = BottomSheetCarbonEmissionBinding.inflate(layoutInflater)
+        val bottomSheetDialog = BottomSheetDialog(requireContext())
+
+        try {
+            val carbonEmission = CarbonEmissionCalculator.calculateTotalCarbonEmission(vehicle.kilometrage)
+            val estimatedCarbon =
+                CarbonEmissionCalculator.calculateEstimateCarbonEmission(vehicle.kilometrage!!, carbonEmission)
+            val formattedEstimation = String.format("%.2f", estimatedCarbon).toDouble()
+            bottomSheetBinding.txtCarbonEmissionVal.text = "$carbonEmission g"
+            bottomSheetBinding.txtEstimatedCarbonVal.text = "$formattedEstimation g/km"
+            bottomSheetBinding.txtKMRangeVal.text = vehicle.kilometrage.toString()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        } finally {
+            bottomSheetDialog.setContentView(bottomSheetBinding.root)
+            bottomSheetDialog.show()
+        }
     }
 }

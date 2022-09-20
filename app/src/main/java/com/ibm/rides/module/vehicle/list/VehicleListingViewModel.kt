@@ -14,7 +14,7 @@ import com.ibm.rides.network.response.Status
 class VehicleListingViewModel(application: Application) : BaseAndroidViewModel(application),
     OnApiCallback<List<Vehicle>?> {
 
-    var vehicleCount = 0
+    private var vehicleCount = 0
     private val vehicleListingRepository = VehicleListingRepository(viewModelScope)
     val vehicleList = MutableLiveData<List<Vehicle>>()
 

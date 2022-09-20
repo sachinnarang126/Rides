@@ -12,6 +12,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET(Constant.RANDOM_VEHICLE_URL)
-    suspend fun fetchVehicle(@Query("size") size:Int
+    suspend fun fetchVehicle(
+        @Query("size") size: Int
     ): NetworkResponse<List<Vehicle>, ResponseBody>
 }

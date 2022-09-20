@@ -1,7 +1,6 @@
 package com.ibm.rides.basecontroller
 
 import android.app.ProgressDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog

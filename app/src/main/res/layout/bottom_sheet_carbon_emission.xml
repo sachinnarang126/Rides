@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/txtCarbonEmission"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_demi"
+            android:maxLines="1"
+            android:text="@string/carbon_emission_"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtCarbonEmissionVal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_book"
+            android:maxLines="3"
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@+id/txtCarbonEmission"
+            app:layout_constraintStart_toEndOf="@+id/txtCarbonEmission"
+            tools:text="200 g" />
+
+        <TextView
+            android:id="@+id/txtKMRange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_demi"
+            android:maxLines="1"
+            android:text="@string/kilo_meter"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCarbonEmission" />
+
+        <TextView
+            android:id="@+id/txtKMRangeVal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_book"
+            android:maxLines="3"
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@+id/txtKMRange"
+            app:layout_constraintStart_toEndOf="@+id/txtCarbonEmission"
+            tools:text="15000" />
+
+        <TextView
+            android:id="@+id/txtEstimatedCarbon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_demi"
+            android:maxLines="1"
+            android:text="@string/estimated"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtKMRange" />
+
+        <TextView
+            android:id="@+id/txtEstimatedCarbonVal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_book"
+            android:maxLines="3"
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@+id/txtEstimatedCarbon"
+            app:layout_constraintStart_toEndOf="@+id/txtCarbonEmission"
+            tools:text="4 g/km" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

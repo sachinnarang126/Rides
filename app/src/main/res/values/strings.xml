@@ -6,6 +6,10 @@
     <string name="vehicle_listing_fragment">Vehicle listing</string>
     <string name="vehicle_detail_fragment">Vehicle Detail</string>
     <string name="fetch">Fetch Vehicles</string>
+    <string name="carbon_emission">CO2 emissions</string>
+    <string name="carbon_emission_">Total carbon Emissions:</string>
+    <string name="kilo_meter">Kilo-meter range:</string>
+    <string name="estimated">Estimated:</string>
     <string name="previous">Previous</string>
 
     <string name="enter_vehicle_number">Enter number of vehicle to be fetched</string>
@@ -14,6 +18,7 @@
     <string name="color">Color:</string>
     <string name="car_type">Car type:</string>
     <string name="make_model">Make and model:</string>
+
     <string name="error_invalid_input">Input range should be in 1 to 100</string>
     <string name="error_no_internet">"Please check your Internet"</string>
 </resources>
