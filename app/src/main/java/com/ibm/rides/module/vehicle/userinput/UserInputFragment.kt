@@ -64,18 +64,18 @@ class UserInputFragment : BaseFragment() {
                 }
             }
 
-            if (vehicleCount < 1 || vehicleCount > 100) {
-                val activity = requireActivity()
-                activity.hideKeyboard(binding.etVehicleCount)
-                if (activity is BaseActivity)
-                    activity.showSnackBar(getString(R.string.error_invalid_input))
-            } else {
+            if (UserInputValidator.isValidVehicleCount(vehicleCount)) {
                 val bundle = Bundle()
                 bundle.putInt(Constant.KEY_VEHICLE_COUNT, vehicleCount)
                 findNavController().navigate(
                     R.id.action_UserInputFragment_to_VehicleListingFragment,
                     bundle
                 )
+            } else {
+                val activity = requireActivity()
+                activity.hideKeyboard(binding.etVehicleCount)
+                if (activity is BaseActivity)
+                    activity.showSnackBar(getString(R.string.error_invalid_input))
             }
         }
     }
