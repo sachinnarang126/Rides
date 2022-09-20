@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vModel"
+            type="com.ibm.rides.module.vehicle.detail.VehicleDetailViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".module.vehicle.userinput.UserInputFragment">
+
+        <!--<androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.38" />-->
+
+        <TextView
+            android:id="@+id/txtMakeAndModel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_demi"
+            android:maxLines="1"
+            android:text="@string/make_model"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtMakeAndModelVal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_book"
+            android:maxLines="3"
+            android:text="@{vModel.vehicle.makeAndModel}"
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@+id/txtMakeAndModel"
+            app:layout_constraintStart_toEndOf="@+id/txtMakeAndModel"
+            tools:text="Lincoln MKS" />
+
+        <TextView
+            android:id="@+id/txtVin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_demi"
+            android:maxLines="1"
+            android:text="@string/vin"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtMakeAndModel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtMakeAndModelVal"
+            app:layout_goneMarginTop="2dp" />
+
+        <TextView
+            android:id="@+id/txtVinVal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_book"
+            android:maxLines="3"
+            android:text="@{vModel.vehicle.vin}"
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@+id/txtVin"
+            app:layout_constraintStart_toEndOf="@+id/txtVin"
+            tools:text="JWZEYPPPG7L534649" />
+
+        <TextView
+            android:id="@+id/txtColor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_demi"
+            android:maxLines="1"
+            android:text="@string/color"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtMakeAndModel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtVin"
+            app:layout_goneMarginTop="2dp" />
+
+        <TextView
+            android:id="@+id/txtColorVal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_book"
+            android:maxLines="3"
+            android:text="@{vModel.vehicle.color}"
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@+id/txtColor"
+            app:layout_constraintStart_toEndOf="@+id/txtVin"
+            tools:text="Black" />
+
+        <TextView
+            android:id="@+id/txtCarType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_demi"
+            android:maxLines="1"
+            android:text="@string/car_type"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/txtMakeAndModel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtColor"
+            app:layout_goneMarginTop="2dp" />
+
+        <TextView
+            android:id="@+id/txtCarTypeVal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/maison_neue_book"
+            android:maxLines="3"
+            android:text="@{vModel.vehicle.carType}"
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@+id/txtCarType"
+            app:layout_constraintStart_toEndOf="@+id/txtVin"
+            tools:text="Wagon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
