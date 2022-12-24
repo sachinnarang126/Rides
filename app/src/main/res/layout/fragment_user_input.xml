@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vModel"
+            type="com.ibm.rides.module.vehicle.userinput.UserInputViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".module.vehicle.userinput.UserInputFragment">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etVehicleCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/maison_neue_book"
+            android:hint="@string/vehicle_range"
+            android:inputType="numberSigned"
+            android:maxLength="3"
+            android:paddingStart="8dp"
+            android:text="@={vModel.vehicleCount}"
+            android:paddingEnd="8dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/btnFetch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFetch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/bg_button"
+            android:fontFamily="@font/maison_neue_mono_regular"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/fetch"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/maison_neue_book"
+            android:text="@string/enter_vehicle_number"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/etVehicleCount"
+            app:layout_constraintStart_toStartOf="@+id/etVehicleCount" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

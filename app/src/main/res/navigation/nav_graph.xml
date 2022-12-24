@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/UserInputFragment">
+
+    <fragment
+        android:id="@+id/UserInputFragment"
+        android:name="com.ibm.rides.module.vehicle.userinput.UserInputFragment"
+        android:label="@string/user_input_fragment"
+        tools:layout="@layout/fragment_user_input">
+
+        <action
+            android:id="@+id/action_UserInputFragment_to_VehicleListingFragment"
+            app:destination="@id/VehicleListingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/VehicleListingFragment"
+        android:name="com.ibm.rides.module.vehicle.list.VehicleListingFragment"
+        android:label="@string/vehicle_listing_fragment"
+        tools:layout="@layout/fragment_vehicle_listing">
+
+        <action
+            android:id="@+id/launchVehicleDetail"
+            app:destination="@id/VehicleDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/VehicleDetailFragment"
+        android:name="com.ibm.rides.module.vehicle.detail.VehicleDetailFragment"
+        android:label="@string/vehicle_detail_fragment"
+        tools:layout="@layout/fragment_vehicle_detail">
+
+    </fragment>
+</navigation>
