@@ -7,7 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.snackbar.Snackbar
-import com.ibm.rides.network.response.Status
+import com.ibm.rides.data.response.Status
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -17,7 +17,7 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope {
 
     private lateinit var job: Job
 
-    abstract fun getViewModel(): BaseAndroidViewModel?
+    abstract fun getViewModel(): BaseViewModel?
 
     @Suppress("DEPRECATION")
     private var progressDialog: ProgressDialog? = null
@@ -40,7 +40,7 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope {
         initAppScope(getViewModel())
     }
 
-    fun initAppScope(vModel: BaseAndroidViewModel?) {
+    fun initAppScope(vModel: BaseViewModel?) {
         vModel?.apply {
             message.observe(this@BaseActivity) {
                 it?.run {
@@ -52,7 +52,7 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope {
             networkResponse.observe(this@BaseActivity) {
                 it?.let { status ->
                     when (status) {
-                        Status.ERROR -> {
+                        Status.ERROR   -> {
                             hideProgressDialog()
                         }
                         Status.LOADING -> {

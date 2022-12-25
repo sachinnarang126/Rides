@@ -1,6 +1,6 @@
 package com.ibm.rides
 
-import com.ibm.rides.module.vehicle.userinput.UserInputValidator
+import com.ibm.rides.ui.vehicle.userinput.UserInputValidator
 import org.junit.Assert
 import org.junit.Test
 import kotlin.random.Random

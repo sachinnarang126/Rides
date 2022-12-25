@@ -11,7 +11,7 @@ import kotlin.coroutines.CoroutineContext
 abstract class BaseFragment : Fragment(), CoroutineScope {
 
     private lateinit var job: Job
-    abstract fun getVieModel(): BaseAndroidViewModel?
+    abstract fun getVieModel(): BaseViewModel?
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +20,7 @@ abstract class BaseFragment : Fragment(), CoroutineScope {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        context?.run {
-            val con = this
+        activity?.let { con ->
             if (con is BaseActivity) {
                 con.initAppScope(getVieModel())
             }

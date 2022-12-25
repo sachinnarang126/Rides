@@ -1,6 +1,6 @@
 package com.ibm.rides
 
-import com.ibm.rides.module.vehicle.detail.CarbonEmissionCalculator
+import com.ibm.rides.ui.vehicle.detail.CarbonEmissionCalculator
 import org.junit.Assert
 import org.junit.Test
 

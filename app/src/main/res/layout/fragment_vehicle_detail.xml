@@ -8,7 +8,7 @@
 
         <variable
             name="vModel"
-            type="com.ibm.rides.module.vehicle.detail.VehicleDetailViewModel" />
+            type="com.ibm.rides.ui.vehicle.detail.VehicleDetailViewModel" />
     </data>
 
 
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        tools:context=".module.vehicle.userinput.UserInputFragment">
+        tools:context=".ui.vehicle.userinput.UserInputFragment">
 
         <!--<androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideCenter"
