@@ -5,7 +5,12 @@ import com.ibm.rides.data.response.NetworkResponse
 import okhttp3.ResponseBody
 import javax.inject.Inject
 
-class ApiHelperImpl @Inject constructor(private val apiService: ApiService) : ApiHelper {
+interface IVehicleListApiHelper {
+
+    suspend fun fetchVehicle(size: Int): NetworkResponse<List<Vehicle>, ResponseBody>
+}
+
+class VehicleListApiHelperImpl @Inject constructor(private val apiService: ApiService) : IVehicleListApiHelper {
 
     override suspend fun fetchVehicle(size: Int): NetworkResponse<List<Vehicle>, ResponseBody> = apiService.fetchVehicle(size)
 

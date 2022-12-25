@@ -4,9 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.ibm.rides.basecontroller.BaseViewModel
 import com.ibm.rides.basecontroller.OnApiCallback
-import com.ibm.rides.data.repository.VehicleListRepository
 import com.ibm.rides.data.response.NetworkResponse
 import com.ibm.rides.data.response.Status
+import com.ibm.rides.domain.vehicle.list.IVehicleListUseCase
 import com.ibm.rides.ui.vehicle.model.Vehicle
 import com.ibm.rides.utils.NetworkHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +15,7 @@ import okhttp3.ResponseBody
 import javax.inject.Inject
 
 @HiltViewModel
-class VehicleListViewModel @Inject constructor(private val vehicleListRepository: VehicleListRepository, private val networkHelper: NetworkHelper) :
+class VehicleListViewModel @Inject constructor(private val vehicleListUseCase: IVehicleListUseCase, private val networkHelper: NetworkHelper) :
     BaseViewModel(), OnApiCallback<List<Vehicle>?> {
 
     private var vehicleCount = 0
@@ -26,7 +26,7 @@ class VehicleListViewModel @Inject constructor(private val vehicleListRepository
         if (networkHelper.isNetworkConnected()) {
             networkResponse.postValue(Status.LOADING)
             viewModelScope.launch {
-                notifyUI(vehicleListRepository.fetchVehicle(count))
+                notifyUI(vehicleListUseCase(count))
             }
         } else showInternetError()
     }
@@ -34,7 +34,7 @@ class VehicleListViewModel @Inject constructor(private val vehicleListRepository
     fun fetchVehicleListOnPullToRefresh() {
         networkResponse.postValue(Status.LOADING)
         viewModelScope.launch {
-            notifyUI(vehicleListRepository.fetchVehicle(vehicleCount))
+            notifyUI(vehicleListUseCase(vehicleCount))
         }
     }
 

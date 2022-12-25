@@ -1,9 +1,9 @@
-package com.ibm.rides.di.module.application
+package com.ibm.rides.di.module.network
 
 import com.google.gson.GsonBuilder
 import com.ibm.rides.BuildConfig
-import com.ibm.rides.data.api.ApiHelper
-import com.ibm.rides.data.api.ApiHelperImpl
+import com.ibm.rides.data.api.IVehicleListApiHelper
+import com.ibm.rides.data.api.VehicleListApiHelperImpl
 import com.ibm.rides.data.api.ApiService
 import com.ibm.rides.data.response.NetworkResponseAdapterFactory
 import com.ibm.rides.utils.Constant
@@ -19,7 +19,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class ApplicationModule {
+class NetworkModule {
 
     @Provides
     fun provideBaseUrl() = Constant.BASE_URL
@@ -52,8 +52,4 @@ class ApplicationModule {
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
-
-    @Provides
-    @Singleton
-    fun provideApiHelper(apiHelper: ApiHelperImpl): ApiHelper = apiHelper
 }
