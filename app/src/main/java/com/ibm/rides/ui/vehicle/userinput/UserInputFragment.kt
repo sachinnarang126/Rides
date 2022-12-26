@@ -57,7 +57,7 @@ class UserInputFragment : BaseFragment() {
                 }
             }
 
-            if (UserInputValidator.isValidVehicleCount(vehicleCount)) {
+            if (viewModel.isValidVehicleCount(vehicleCount)) {
                 val bundle = Bundle()
                 bundle.putInt(Constant.KEY_VEHICLE_COUNT, vehicleCount)
                 findNavController().navigate(R.id.action_UserInputFragment_to_VehicleListingFragment, bundle)

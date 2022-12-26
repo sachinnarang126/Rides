@@ -14,11 +14,13 @@ import com.ibm.rides.databinding.BottomSheetCarbonEmissionBinding
 import com.ibm.rides.databinding.FragmentVehicleDetailBinding
 import com.ibm.rides.ui.vehicle.model.Vehicle
 import com.ibm.rides.utils.Constant
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 
+@AndroidEntryPoint
 class VehicleDetailFragment : BaseFragment() {
 
     private var _binding: FragmentVehicleDetailBinding? = null
@@ -71,8 +73,8 @@ class VehicleDetailFragment : BaseFragment() {
         val bottomSheetDialog = BottomSheetDialog(requireContext())
 
         try {
-            val carbonEmission = CarbonEmissionCalculator.calculateTotalCarbonEmission(vehicle.kilometrage)
-            val estimatedCarbon = CarbonEmissionCalculator.calculateEstimateCarbonEmission(vehicle.kilometrage!!, carbonEmission)
+            val carbonEmission = viewModel.calculateTotalCarbonEmission(vehicle.kilometrage)
+            val estimatedCarbon = viewModel.calculateEstimateCarbonEmission(vehicle.kilometrage!!, carbonEmission)
             val formattedEstimation = String.format("%.2f", estimatedCarbon).toDouble()
             bottomSheetBinding.txtCarbonEmissionVal.text = "$carbonEmission g"
             bottomSheetBinding.txtEstimatedCarbonVal.text = "$formattedEstimation g/km"

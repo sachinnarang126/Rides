@@ -8,22 +8,22 @@ import com.ibm.rides.domain.vehicle.list.IVehicleListUseCase
 import com.ibm.rides.domain.vehicle.list.VehicleListUseCaseImpl
 import dagger.Module
 import dagger.Provides
+import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.android.scopes.ActivityScoped
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.ViewModelComponent
 import kotlinx.coroutines.CoroutineDispatcher
-import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 class VehicleListModule {
 
     @Provides
+    @Reusable
     fun provideVehicleListUseCase(repository: VehicleListRepository, @IoDispatcher ioDispatcher: CoroutineDispatcher): IVehicleListUseCase {
         return VehicleListUseCaseImpl(repository, ioDispatcher)
     }
 
     @Provides
-    @Singleton
+    @Reusable
     fun provideVehicleListApiHelper(apiHelper: VehicleListApiHelperImpl): IVehicleListApiHelper = apiHelper
 }

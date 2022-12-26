@@ -1,10 +1,10 @@
 package com.ibm.rides.ui.vehicle.userinput
 
-class UserInputValidator private constructor() {
+import javax.inject.Inject
 
-    companion object {
-        fun isValidVehicleCount(vehicleCount: Int): Boolean {
-            return vehicleCount in 1..100
-        }
+class UserInputValidator @Inject constructor() {
+
+    fun isValidVehicleCount(vehicleCount: Int): Boolean {
+        return vehicleCount in 1..100
     }
 }
