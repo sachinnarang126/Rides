@@ -15,7 +15,7 @@ class CarbonEmissionCalculationUnitTest {
 
     @Before
     fun setup(){
-
+        carbonEmissionCalculator = CarbonEmissionCalculator()
     }
 
     @Test
