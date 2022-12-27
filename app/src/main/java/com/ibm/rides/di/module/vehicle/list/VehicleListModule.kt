@@ -1,8 +1,6 @@
 package com.ibm.rides.di.module.vehicle.list
 
-import com.ibm.rides.data.api.IVehicleListApiHelper
-import com.ibm.rides.data.api.VehicleListApiHelperImpl
-import com.ibm.rides.data.repository.VehicleListRepository
+import com.ibm.rides.domain.vehicle.list.VehicleListRepository
 import com.ibm.rides.di.module.coroutines.IoDispatcher
 import com.ibm.rides.domain.vehicle.list.IVehicleListUseCase
 import com.ibm.rides.domain.vehicle.list.VehicleListUseCaseImpl
@@ -22,8 +20,4 @@ class VehicleListModule {
     fun provideVehicleListUseCase(repository: VehicleListRepository, @IoDispatcher ioDispatcher: CoroutineDispatcher): IVehicleListUseCase {
         return VehicleListUseCaseImpl(repository, ioDispatcher)
     }
-
-    @Provides
-    @Reusable
-    fun provideVehicleListApiHelper(apiHelper: VehicleListApiHelperImpl): IVehicleListApiHelper = apiHelper
 }

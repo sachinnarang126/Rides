@@ -3,13 +3,20 @@ package com.ibm.rides
 import com.ibm.rides.ui.vehicle.detail.CarbonEmissionCalculator
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
-import javax.inject.Inject
+import org.mockito.Mock
 
 @HiltAndroidTest
 class CarbonEmissionCalculationUnitTest {
 
-    @Inject lateinit var carbonEmissionCalculator: CarbonEmissionCalculator
+    @Mock
+    lateinit var carbonEmissionCalculator: CarbonEmissionCalculator
+
+    @Before
+    fun setup(){
+
+    }
 
     @Test
     fun `Assert total carbon emission calculation`() {

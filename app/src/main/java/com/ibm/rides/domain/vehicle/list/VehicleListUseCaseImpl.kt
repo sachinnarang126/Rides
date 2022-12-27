@@ -1,8 +1,6 @@
 package com.ibm.rides.domain.vehicle.list
 
-import com.ibm.rides.data.repository.VehicleListRepository
 import com.ibm.rides.data.response.NetworkResponse
-import com.ibm.rides.ui.vehicle.model.Vehicle
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

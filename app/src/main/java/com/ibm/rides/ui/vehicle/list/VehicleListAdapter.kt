@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ibm.rides.databinding.ListItemVehicleBinding
-import com.ibm.rides.ui.vehicle.model.Vehicle
+import com.ibm.rides.domain.vehicle.list.Vehicle
 import com.ibm.rides.utils.OnItemClickListener
 
 

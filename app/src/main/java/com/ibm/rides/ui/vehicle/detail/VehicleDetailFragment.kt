@@ -12,7 +12,7 @@ import com.ibm.rides.basecontroller.BaseFragment
 import com.ibm.rides.basecontroller.BaseViewModel
 import com.ibm.rides.databinding.BottomSheetCarbonEmissionBinding
 import com.ibm.rides.databinding.FragmentVehicleDetailBinding
-import com.ibm.rides.ui.vehicle.model.Vehicle
+import com.ibm.rides.domain.vehicle.list.Vehicle
 import com.ibm.rides.utils.Constant
 import dagger.hilt.android.AndroidEntryPoint
 

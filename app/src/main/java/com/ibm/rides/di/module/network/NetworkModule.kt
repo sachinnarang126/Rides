@@ -2,8 +2,6 @@ package com.ibm.rides.di.module.network
 
 import com.google.gson.GsonBuilder
 import com.ibm.rides.BuildConfig
-import com.ibm.rides.data.api.IVehicleListApiHelper
-import com.ibm.rides.data.api.VehicleListApiHelperImpl
 import com.ibm.rides.data.api.ApiService
 import com.ibm.rides.data.response.NetworkResponseAdapterFactory
 import com.ibm.rides.utils.Constant

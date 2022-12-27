@@ -7,7 +7,7 @@ import com.ibm.rides.basecontroller.OnApiCallback
 import com.ibm.rides.data.response.NetworkResponse
 import com.ibm.rides.data.response.Status
 import com.ibm.rides.domain.vehicle.list.IVehicleListUseCase
-import com.ibm.rides.ui.vehicle.model.Vehicle
+import com.ibm.rides.domain.vehicle.list.Vehicle
 import com.ibm.rides.utils.NetworkHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

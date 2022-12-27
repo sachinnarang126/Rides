@@ -1,4 +1,4 @@
-package com.ibm.rides.ui.vehicle.model
+package com.ibm.rides.domain.vehicle.list
 
 import android.os.Parcel
 import android.os.Parcelable
