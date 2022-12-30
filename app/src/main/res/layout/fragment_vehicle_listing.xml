@@ -8,7 +8,7 @@
 
         <variable
             name="vModel"
-            type="com.ibm.rides.module.vehicle.list.VehicleListingViewModel" />
+            type="com.ibm.rides.ui.vehicle.list.VehicleListViewModel" />
 
         <import type="android.view.View" />
     </data>

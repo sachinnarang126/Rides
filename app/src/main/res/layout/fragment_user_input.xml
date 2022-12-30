@@ -8,14 +8,14 @@
 
         <variable
             name="vModel"
-            type="com.ibm.rides.module.vehicle.userinput.UserInputViewModel" />
+            type="com.ibm.rides.ui.vehicle.userinput.UserInputViewModel" />
     </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".module.vehicle.userinput.UserInputFragment">
+        tools:context=".ui.vehicle.userinput.UserInputFragment">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etVehicleCount"

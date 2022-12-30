@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/UserInputFragment"
-        android:name="com.ibm.rides.module.vehicle.userinput.UserInputFragment"
+        android:name="com.ibm.rides.ui.vehicle.userinput.UserInputFragment"
         android:label="@string/user_input_fragment"
         tools:layout="@layout/fragment_user_input">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/VehicleListingFragment"
-        android:name="com.ibm.rides.module.vehicle.list.VehicleListingFragment"
+        android:name="com.ibm.rides.ui.vehicle.list.VehicleListingFragment"
         android:label="@string/vehicle_listing_fragment"
         tools:layout="@layout/fragment_vehicle_listing">
 
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/VehicleDetailFragment"
-        android:name="com.ibm.rides.module.vehicle.detail.VehicleDetailFragment"
+        android:name="com.ibm.rides.ui.vehicle.detail.VehicleDetailFragment"
         android:label="@string/vehicle_detail_fragment"
         tools:layout="@layout/fragment_vehicle_detail">
 
