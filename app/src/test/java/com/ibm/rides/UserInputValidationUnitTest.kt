@@ -7,6 +7,8 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 import kotlin.random.Random
 
@@ -17,11 +19,14 @@ class UserInputValidationUnitTest {
 
     private lateinit var viewModel: UserInputViewModel
 
+    @Mock
     private lateinit var validator: UserInputValidator
 
     @Before
     fun setup() {
+        MockitoAnnotations.openMocks(this)
         validator = UserInputValidator()
+        //        Mockito.`when`(validator.isValidVehicleCount(anyInt())).thenReturn(true)
         viewModel = UserInputViewModel(validator)
     }
 
