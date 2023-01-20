@@ -6,8 +6,8 @@ import com.ibm.rides.basecontroller.BaseViewModel
 import com.ibm.rides.basecontroller.OnApiCallback
 import com.ibm.rides.data.response.NetworkResponse
 import com.ibm.rides.data.response.Status
-import com.ibm.rides.domain.vehicle.list.IVehicleListUseCase
 import com.ibm.rides.domain.vehicle.list.Vehicle
+import com.ibm.rides.domain.vehicle.list.VehicleListUseCase
 import com.ibm.rides.utils.NetworkHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -15,7 +15,7 @@ import okhttp3.ResponseBody
 import javax.inject.Inject
 
 @HiltViewModel
-class VehicleListViewModel @Inject constructor(private val vehicleListUseCase: IVehicleListUseCase, private val networkHelper: NetworkHelper) :
+class VehicleListViewModel @Inject constructor(private val vehicleListUseCase: VehicleListUseCase, private val networkHelper: NetworkHelper) :
     BaseViewModel(), OnApiCallback<List<Vehicle>?> {
 
     private var vehicleCount = 0
